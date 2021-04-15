@@ -1,0 +1,10 @@
+body {background-color: #df8757;
+    color: #ebd7d1;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+}
+
+form {
+    display: grid;
+    justify-content: center;
+}
