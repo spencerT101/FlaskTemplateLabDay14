@@ -14,29 +14,47 @@
     {% for event in events %}
     <div>
         <b>{{ event.event_name}}</b> <br> {{ event.date }} <br>{{event.num_guest}}<br>
-        {{event.room_loc}}<br>{{event.description}}
-    </div>
+        {{event.room_loc}}<br>{{event.description}} <br>
+        {% if event.confirmed %}
+        <span> &#9989 </span>
+        {% else %}
+        <span> ❌ </span>
+        {% endif %}
+        
+        {% if event.recurring %}
+        <span> 🔄 </span>
+        {% else %}
+        <span> 🚫 </span>
+        {% endif %}
+        <br><br><br>
+    </div> 
     {% endfor %}
+    <p> &#9989 = Confirmed, ❌ = Unconfirmed</p>
+    <p> 🔄  = Recurring Event, 🚫 = Non-Recurring Event</p>
     <div>
         <form action="/events" method="post">
+            <br>
             <label for="name"> Event Name</label>
+            <br>
             <input type="text" name="name" id="event_name">
-
+             <br>
             <label for="date"> Date</label>
-            <input type="text" name="date" id="event_date">
-
+            <br>
+            <input type="date" name="date" id="event_date">
+            <br>
             <label for="guests"> Number of Guests</label>
+            <br>
             <input type="text" name="guests" id="event_guests">
-
+            <br>
             <label for="room"> Room</label>
+            <br>
             <input type="text" name="room" id="event_room">
-
+            <br>
             <label for="description"> Event Description</label>
+            <br>
             <input type="text" name="description" id="event_description">
-            
-            <input type="submit" value="add event">
-
-
+            <br>            
+            <input type="submit" value="Add Event">
         </form>
 
     </div>
