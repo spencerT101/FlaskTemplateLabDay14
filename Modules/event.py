@@ -1,4 +1,4 @@
-class Event():
+class Event:
 
     def __init__(self, date, event_name, num_guest, room_loc, description):
         self.date = date
